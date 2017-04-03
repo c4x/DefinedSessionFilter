@@ -26,7 +26,6 @@ public class DefinedSession implements HttpSession {
 	 private static final Logger logger = SessionLogger.getSessionLogger();
 	 private static final Logger sessionIdLogger = SessionLogger
 	 .getSessionIdLogger();
-//	private static final Logger logger = Logger.getLogger(DefinedSession.class);
 	public static final String SESSION_ID = KeyConstants.ATTRIBUTE_SESSION_ID;
 	public static final String TOKEN = KeyConstants.ATTRIBUTE_TOKEN;
 	private int maxInactiveInterval = 1800;

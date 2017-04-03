@@ -60,18 +60,18 @@ public class DefinedSessionFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		DefinedSessionServletRequest request = null;
-		DefinedSessionServletResponse response = null;
+		DefinedSessionServletRequest definedSessionServletRequest = null;
+		DefinedSessionServletResponse definedSessionServletResponse = null;
 		DefinedSession session = null;
 		try {
 			request = new DefinedSessionServletRequest(
 					(HttpServletRequest) request);
 			response = new DefinedSessionServletResponse(
 					(HttpServletResponse) response);
-			session = createDefinedSession(request, response);
-			request.setSession(session);
-			response.setSession(session);
-			boolean isDomainEqual = UserCheckUtil.domainCheck(request,
+			session = createDefinedSession(definedSessionServletRequest, definedSessionServletResponse);
+			definedSessionServletRequest.setSession(session);
+			definedSessionServletResponse.setSession(session);
+			boolean isDomainEqual = UserCheckUtil.domainCheck(definedSessionServletRequest,
 					config);
 			if (isDomainEqual) {
 				checkLoginCookie(session);
